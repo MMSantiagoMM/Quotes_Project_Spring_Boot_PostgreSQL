@@ -17,27 +17,27 @@ public class Book {
     private String name;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id",nullable = false)
+    @JoinColumn(name = "fk_writer",referencedColumnName = "id")
     private Writer writer;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "fk_publisher", referencedColumnName = "id")
     private Publisher publisher;
 
     private Integer pag;
 
-    private LocalDate date;
+    private LocalDate datePublication;
 
     public Book() {
     }
 
-    public Book(Long id, String name, Writer writer, Publisher publisher, Integer pag, LocalDate date) {
+    public Book(Long id, String name, Writer writer, Publisher publisher, Integer pag, LocalDate datePublication) {
         this.id = id;
         this.name = name;
         this.writer = writer;
         this.publisher = publisher;
         this.pag = pag;
-        this.date = date;
+        this.datePublication = datePublication;
     }
 
     public Long getId() {
@@ -60,16 +60,16 @@ public class Book {
         return writer;
     }
 
-    public void setWriter(Writer writer) {
-        this.writer = writer;
+    public void setWriter(Writer writer_id) {
+        this.writer = writer_id;
     }
 
     public Publisher getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
+    public void setPublisher(Publisher publisher_id) {
+        this.publisher = publisher_id;
     }
 
     public Integer getPag() {
@@ -80,11 +80,11 @@ public class Book {
         this.pag = pag;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getDatePublication() {
+        return datePublication;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDatePublication(LocalDate datePublication) {
+        this.datePublication = datePublication;
     }
 }
