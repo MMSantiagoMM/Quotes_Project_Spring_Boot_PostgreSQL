@@ -4,7 +4,7 @@ package com.project.quotes.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Publisher")
+@Table(name = "Publishers")
 public class Publisher {
 
     @Id
