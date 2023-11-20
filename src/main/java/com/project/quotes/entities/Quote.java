@@ -13,7 +13,7 @@ public class Quote {
     private String content;
     private Integer pag;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id",nullable = false)
     private Book book;
 
