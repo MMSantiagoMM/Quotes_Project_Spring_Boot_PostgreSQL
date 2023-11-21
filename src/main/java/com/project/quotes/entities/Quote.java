@@ -13,11 +13,11 @@ public class Quote {
     private String content;
     private Integer pag;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_fk",nullable = false)
     private Book book;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_fk")
     private Category category;
 
