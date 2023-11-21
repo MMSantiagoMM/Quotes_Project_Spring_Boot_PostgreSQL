@@ -25,3 +25,11 @@ fk_publisher BIGINT,
 pag INTEGER,
 date_publication DATE
 );
+
+CREATE TABLE Quotes(
+id SERIAL NOT NULL PRIMARY KEY,
+content TEXT,
+pag INTEGER,
+book_fk BIGINT,
+category_fk BIGINT
+);
