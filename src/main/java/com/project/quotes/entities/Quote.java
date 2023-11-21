@@ -13,18 +13,23 @@ public class Quote {
     private String content;
     private Integer pag;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id",nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_fk",nullable = false)
     private Book book;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_fk")
+    private Category category;
 
     public Quote() {
     }
 
-    public Quote(Long id, String content, Integer pag, Book book) {
+    public Quote(Long id, String content, Integer pag, Book book, Category category) {
         this.id = id;
         this.content = content;
         this.pag = pag;
         this.book = book;
+        this.category = category;
     }
 
     public Long getId() {
@@ -57,5 +62,13 @@ public class Quote {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

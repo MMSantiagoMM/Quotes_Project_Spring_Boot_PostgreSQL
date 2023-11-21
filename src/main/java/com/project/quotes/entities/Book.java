@@ -1,6 +1,7 @@
 package com.project.quotes.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -16,11 +17,11 @@ public class Book {
 
     private String name;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_writer",referencedColumnName = "id")
     private Writer writer;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_publisher", referencedColumnName = "id")
     private Publisher publisher;
 
